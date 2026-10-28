@@ -11,11 +11,11 @@ import './App.css'
 
 function App() {
   const [tasks, setTasks] = useState([
-    { id: 1, text: 'Call Mom', completed: false },
-    { id: 2, text: 'Buy the new issue of Scientific American', completed: false },
-    { id: 3, text: 'Return the textbook to Josie', completed: false },
-    { id: 4, text: 'Buy the new album by Rake', completed: false },
-    { id: 5, text: 'Buy a gift card for Dad', completed: false },
+    { id: 1, text: 'call mom', completed: false },
+    { id: 2, text: 'buy the new issue of scientific american', completed: false },
+    { id: 3, text: 'return the textbook to josie', completed: false },
+    { id: 4, text: 'buy the new album by rake', completed: false },
+    { id: 5, text: 'buy a gift card for dad', completed: false },
   ])
   const [filter, setFilter] = useState('All')
   const completedCount = tasks.filter(task => task.completed).length
@@ -24,7 +24,6 @@ function App() {
     if (filter === 'Completed') return task.completed
     return true
   })
-
   function addTask(text) {
     const trimmedText = text.trim()
     if (!trimmedText) return
@@ -33,17 +32,14 @@ function App() {
       { id: crypto.randomUUID(), text: trimmedText, completed: false },
     ])
   }
-
   function toggleTask(id) {
     setTasks(current => current.map(task =>
       task.id === id ? { ...task, completed: !task.completed } : task
     ))
   }
-
   function deleteTask(id) {
     setTasks(current => current.filter(task => task.id !== id))
   }
-
   return (
     <div className="page">
       <header className="site-header">
@@ -93,5 +89,4 @@ function App() {
     </div>
   )
 }
-
 export default App
